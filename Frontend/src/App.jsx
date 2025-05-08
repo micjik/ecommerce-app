@@ -7,6 +7,8 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Order from './pages/Order'
 import Product from './pages/Product'
+import Login from './pages/Login'
+import Register from './pages/Register'
 
 const App = () => {
 
@@ -44,8 +46,16 @@ const App = () => {
         },
 
         {
-          path: '/product',
+          path: '/product:id',
           element:<Product/>
+        },
+        {
+          path: '/login',
+          element:<Login/>
+        },
+        {
+          path:'/register',
+          element:<Register/>
         }
       ]
      }

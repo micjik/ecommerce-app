@@ -50,4 +50,4 @@ const productData = [
       },
 ]
 
-export default productData
+export default productData;

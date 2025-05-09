@@ -3,6 +3,7 @@ import dotenv from "dotenv"
 dotenv.config()
 import connectDB from "./utils/db.js"
 import authRoute from "./routes/auth.route.js"
+import bannerRoute from "./routes/banner.route.js"
 import cors from "cors"
 
 
@@ -14,6 +15,7 @@ app.use(express.json()) // built-in middleware in server
 
 //Routes
 app.use('/api/', authRoute)
+app.use('/api', bannerRoute)
 
 //cors
 

@@ -1,10 +1,42 @@
-import React from 'react'
-import wears4 from '/wears4.jpg'
+import React, { useEffect } from 'react'
+import { useContext } from 'react';
 import { AiTwotoneDelete } from "react-icons/ai";
+import { ShopContext } from '../context/ShopContext';
 
 const Cart = () => {
+  const [cartData, setCartData] = useState([])
+  const { products, currency, cartItems, updateQuantity} = useContext(ShopContext)
+
+   useEffect(()=> {
+    if( products === 0)
+      return
+    const tempData = Object.entries(cartItems).flatMap(([itemId, sizes])=>
+    Object.entries(sizes).filter(([, quantity])=> quantity > 0).map(([size, quantity])=> ({
+
+      _id: itemId,
+      size,
+      quantity
+
+    }))
+  )
+      setCartData(tempData)
+   }, [cartItems, products])
   return (
+
+    
     <div className='m-10'>
+
+      {cartData.map((item, index) =>{
+        const productData = products.find(product=> product._id === item._id)
+        return(
+          <div>
+            <img src={productData.image[0]} alt=""/>
+            <p>{productData.name }</p>
+            
+            
+          </div>
+        )
+      })}
       <h2>Shopping Cart</h2>
 
       <div className='flex justify-between mb-5'>
@@ -12,7 +44,7 @@ const Cart = () => {
           <h3 className='p-6'>Your Items</h3>
           <div className='flex justify-around'>
             
-            <img src={wears4} alt="" height={150} width={150} className='mt-10' />
+            <img src="" alt="" height={150} width={150} className='mt-10' />
              <div className='pt-10'>
             <p className='font-semibold'>Women luvly court shoes sandal low heel pop shoe</p>
             <p className='mb-5'>Bridal Wedding Party </p>
@@ -27,7 +59,7 @@ const Cart = () => {
           </div>
           <div className='flex justify-around'>
             
-            <img src={wears4} alt="" height={150} width={150} className='mt-10' />
+            <img src="" alt="" height={150} width={150} className='mt-10' />
              <div className='pt-10'>
             <p className='font-semibold'>Women luvly court shoes sandal low heel pop shoe</p>
             <p className='mb-5'>Bridal Wedding Party </p>
@@ -42,7 +74,7 @@ const Cart = () => {
           </div>
           <div className='flex justify-around'>
             
-            <img src={wears4} alt="" height={150} width={150} className='mt-10' />
+            <img src="" alt="" height={150} width={150} className='mt-10' />
              <div className='pt-10'>
             <p className='font-semibold'>Women luvly court shoes sandal low heel pop shoe</p>
             <p className='mb-5'>Bridal Wedding Party </p>

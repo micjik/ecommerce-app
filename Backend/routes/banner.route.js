@@ -12,7 +12,7 @@ router.get('/', getAllBanners)
 
 //GET RANDOM BANNER
 
-router.get('/:id', getRandomBanner)
+router.get('/random', getRandomBanner)
 
 //delete banner
 

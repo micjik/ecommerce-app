@@ -1,15 +1,17 @@
 import React from 'react'
-import Banner from '../components/Banner'
-import Category from '../components/Category'
-import Products from '../components/Products'
+import Hero from '../components/Hero.jsx'
+import BestSeller from '../components/BestSeller.jsx'
+import Homecollection from '../components/Homecollection.jsx'
+
+
 
 const Home = () => {
   return (
     <div>
-      <Banner/>
-      <Category/>
-      <Products/>
-    </div>
+      <Hero/>
+      <BestSeller/>
+      <Homecollection/>
+      </div>
   )
 }
 

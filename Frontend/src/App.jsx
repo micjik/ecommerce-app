@@ -1,24 +1,26 @@
 import React from 'react'
 import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom'
 import Home from './pages/Home'
-import Cart from './pages/Cart'
+import Collection from './pages/Collection'
 import Promotional from './components/Promotional'
 import Navbar from './components/Navbar'
-import Footer from './components/Footer'
-import Order from './pages/Order'
-import Product from './pages/Product'
+import Productdetails from './pages/Productdetails'
 import Login from './pages/Login'
-import Register from './pages/Register'
+import Cart from "./pages/Cart"
+import { ToastContainer } from 'react-toastify';
+
+
 
 const App = () => {
 
   const Layout = () => {
     return(
       <div>
+        <ToastContainer/>
         <Promotional/>
         <Navbar/>
         <Outlet/>
-        <Footer/>
+        
 
       </div>
     )
@@ -34,28 +36,23 @@ const App = () => {
           path:'/',
           element: <Home/>
         },
-  
-        { 
+        {
           path:'/cart',
           element: <Cart/>
         },
-
+  
         {
-          path:'/order',
-          element: <Order/>
-        },
-
-        {
-          path: '/product:id',
-          element:<Product/>
+          path: '/product/:productId',
+          element:<Productdetails/>
         },
         {
           path: '/login',
           element:<Login/>
         },
+        
         {
-          path:'/register',
-          element:<Register/>
+          path:'/category/:category',
+          element:<Collection/>
         }
       ]
      }
